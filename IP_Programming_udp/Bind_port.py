@@ -1,5 +1,5 @@
 import socket
-
+# 重点
 
 def main():
     # 1. 创建套接字
@@ -7,6 +7,7 @@ def main():
     # 2.绑定一个本地信息
     localaddr = ("", 7788)  # 必须绑定自己电脑的ip以及port,其他的不行
     udp_socket.bind(localaddr)
+    # print(localaddr)
     # 3.接收数据
     recv_data = udp_socket.recvfrom(1024)
     # recv_data 存储的是一个元组（接收到的数据，（发送方的ip, port））
@@ -15,7 +16,7 @@ def main():
     # 4.打印接收到的数据
     # print(recv_data)
     # print("%s:%s" % (str(send_addr), recv_msg.decode("utf-8")))  # windows中编码格式是gbk
-    print("%s:%s" % (str(send_addr), recv_msg.decode("gbk")))
+    print("%s:  %s" % (str(send_addr), recv_msg.decode("gbk")))
     # 5.关闭套接字
     udp_socket.close()
 
